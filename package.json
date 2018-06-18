@@ -20,7 +20,9 @@
     "clean-adblock-data": "rm -f ~/Library/Application\\ Support/Brave/adblock.dat",
     "clean-tp-data": "rm -f ~/Library/Application\\ Support/Brave/trackingprotection.dat",
     "postinstall": "node ./tools/rebuildNativeModules.js&&webpack",
-    "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive $(find test -name '*Test.js')"
+    "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive $(find test -name '*Test.js')",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": "brave/browser-laptop",
   "author": {
@@ -56,11 +58,12 @@
     "immutable": "^3.7.5",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-    "sqlite3": "^3.1.0",
+    "sqlite3": "^4.0.0",
     "tracking-protection": "^1.0.7",
     "url-loader": "^0.5.7",
     "urlutil.js": "^0.1.1",
-    "vibrant": "jariz/vibrant.js#1.0"
+    "vibrant": "jariz/vibrant.js#1.0",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "asar": "^0.8.3",
@@ -122,5 +125,6 @@
   "engineStrict": true,
   "engines": {
     "node": ">= 5.0.0"
-  }
+  },
+  "snyk": true
 }
